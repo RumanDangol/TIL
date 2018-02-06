@@ -1,0 +1,62 @@
+----------------------------  Java   ------------------------------
+
+========Install jdk, jre and eclipse  in kali=========
+
+1. Download jdk , jre and eclipse fie
+2. tar xfz jdkFile.tar.gz, tar xfz jreFile.tar.gz, tar xfz eclipse.tar.g
+
+========Install jdk in kali=========
+
+========JavaDoc=========
+
+/* text */   -> MultiLine Comments
+//text		-> SingleLine Comments
+/** documentation */   ->  doc Comments
+
+#Definition:
+Javadoc is a tool which comes with JDK and it is used for generating Java code documentation in HTML format from Java source code, which requires documentation in a predefined format.
+
+#Tags
+@author  author-name   /// adds author of class
+{@code  text} 		/// displays text in code font
+{@docRoot}		/// represent relative path of doc root directory
+@deprecated  deprecated-text	/// add comment indicating API no used
+@exception class-name description	/// adds Throws subheading with class name and description
+{@inheritDoc} 		///inherits comment from inheritable class
+{@link package.class#member  label}	///insert link that point pack,class,member
+{@linkplain}		///link label shown plain text
+@param parameter-name desc.	/// adds parameters
+@return	description		/// add return section with description
+@see reference			/// add see also heading that point reference
+@serial field-desc. | include | exclude   // default serializable field
+@serialData data-desc.		// doc the data written by writeObject()
+@since	release			// add siince heading
+@throws class-name desc.	//doc exceptions
+{@value package.class#field}	// display value of that constant
+@version text			// add version sub heading 
+
+
+========JavaDoc End=========
+
+========GSON {}=========
+--Java API used to convert between Java objects and JSON objects developed by Google
+
+JSON handle conversionn between Java and JSON objects
+Gson is class
+An instance of this class can be created by invoking default constructor GsonBuilder class
+GsonBuilder class provides customisation and allow to instantiate Gson
+
+eg:
+Gson gson = new GsonBuilder().create();	// to use Gson api
+gson.toJSON("Hello", System.out); //converted Java String file to Json objects
+
+
+
+
+
+
+========GSON End=========
+
+
+
+
