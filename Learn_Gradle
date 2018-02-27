@@ -1,0 +1,44 @@
+==================Gradle=========================
+-> is an open source, advanced build management system
+-> build on ANT, Maven, and Ivy repositories.
+-> supports Groovy based Domain Specific Language (DSL)
+
+--------History of gradle-----------
+First ant was used but ant uses xml format to write build scripts
+XML is hiearchical so it became unmanageably big
+
+So Maven was used, it changed its structure but uses XML to write build scripts
+Benefit of Maven is its life cycle, uses same life cycle for multiple projects
+Doesnot handle well conflicts between versions of same library and
+Complex customized build scripts are hardeer
+--------------------------------------------
+
+------------- Gradle was introduced in 2012 ---------------
+#Features :
+
+-> declarative builds and build-by-convention 
+-> language for dependency based programming
+-> Structure your build
+-> Deep API
+-> Gradle scales
+-> Multi-project builds
+-> Different ways to manage your builds
+-> First build integration tool
+-> Ease of migration
+-> Gradle Wrapper (allows to execute Gradle builds where Gradle is not installed, useful for continuous integration of servers)
+-> Groovy(written in Groovy because similar to Java, and build should be as trasparent as possible to all team members)
+ 
+-----------------------------------------------------
+
+----------- Installation of Gradle in Linux ----------------------
+-> Should have jdk installed greater than version 6
+-> Download Gradle file
+-> extract files in opt/gradle
+Now setting path in terminal 
+export PATH=$PATH:/opt/gradle/gradle(-4.5.1)/bin // -4.5.1 can be changed to the versions of gradle
+
+gradle -v in terminal shows version of gradle
+
+-----------------------------------------------------------------
+
+
