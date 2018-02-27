@@ -41,4 +41,58 @@ gradle -v in terminal shows version of gradle
 
 -----------------------------------------------------------------
 
+----------------- Gradle Build Script -------------------------
+-> Gradle builds a script for handling projects and tasks
+-> Project can be library Jar or web or zip
+-> tasks can be compiling class, create jar, generate javadoc, publish archives to repository
+
+encoded using UTF-8 and named as build.gradle
+
+# build.gradle
+
++++++++++++++++++++++++++++++++++
+Example 1: Simple hello script
+	task hello{
+		doLast{
+			println 'ruman'
+		}}
+For executing script 
+gradle -q hello
+
+doLast can be represented << like:
+	task hello << { 
+		println 'ruman' }
+++++++++++++++++++++++++++++++++++++
+
+-> Gradle script uses project object and script object
+-> Project object can call some methods and use property in your build script which are delegated to project object
+-> Script object (Gradle takes script code into classes, which implements Scrip interface and then executes.)
+
++++++++++++++++++++++++++++++++++++++
+Example 2: Uses Groovy
+	task upper << {
+		String name = 'ruman'
+		println "Original : " + name
+		println "Upper Case : " +name.toUpperCase()}
+result:
+Original : ruman
+Upper Case : RUMAN
++++++++++++++++++++++++++++++++++++++++++
+
+++++++++++++++++++++++++++++++++++++++++
+Example 3: uses loop
+	task count << {
+		4.times{ print "$it "}}
+result : 0 1 2 3 
+	task groovyJdk << {
+		string name = "ruman";
+		name.each(){ println "${it}"};
+	}
+result: 
+r
+u
+m
+a
+n
++++++++++++++++++++++++++++++++++++++++++
 

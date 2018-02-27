@@ -44,15 +44,9 @@ csvWriter= csv.writer(csvFile, delimiter='\t', lineterminator='\n\n')  // delime
 
 ========= CSV End ===========
 
-========= JSON {JavaScript Object Notation} and APIs {Application Programming Interface}===========
 
 
-
-
-
-========= JSON and APIs End===========
-
-========= List===========
+========= List in python ===========
 list = ['larry', 'curly', 'moe']  //list created
   list.append('shemp')         ## append elem at end
   list.insert(0, 'xxx')        ## insert elem at index 0
