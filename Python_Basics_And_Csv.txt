@@ -1,0 +1,79 @@
+
+----------------------------  PYTHON   ------------------------------
+
+========looping=========
+1. For loop
+for values in listName[startValue:endValue]:
+	print(values) // values can also be list like values[][
+
+
+2. Ifelseif loop
+if condition:    // condition can be { <,> }for int { is " " i.e caseSensitve} for string
+	statement
+elif condition:
+	statement
+else:
+	statement
+
+========looping end=======
+
+
+========= CSV {Comma-Seperated Values} ===========
+import csv  /// load csv api
+exampleFile = open('filename.csv') /// open()function opens the csv files
+
+#ReadFiles
+exampleReader = csv.reader(exampleFile) ///csv.reader() function reades the opened csv files
+exampleDate=list(exampleReader)  // list() function puts the readed value in list
+exampleReader.line_num  //// reads no of current row gets int
+
+#WriteFiles
+outputFile = open('output.csv', 'w', newline='') 
+// w for write mode
+//forget the newline='' keyword argument in open(), the CSV file will be double-spaced
+
+outputWriter = csv.writer(outputFile) // create writer object
+
+outputWriter.writerow(['spam']) // row() function write files for that row in csv files
+outputFile.close() // close file to write
+
+#Delimiter and Lineterminator
+csvFile = open('example.tsv', 'w', newline='') // we use .tsv because now cells are seperated by tabs {tsv = tab-seperated values}
+csvWriter= csv.writer(csvFile, delimiter='\t', lineterminator='\n\n')  // delimeter is used to change ta data seperator from comma[,] to tab[	] {here in csv comma is default}
+// line terminator is used in end of row {here in csv newline is default}
+
+========= CSV End ===========
+
+
+
+========= List in python ===========
+list = ['larry', 'curly', 'moe']  //list created
+  list.append('shemp')         ## append elem at end
+  list.insert(0, 'xxx')        ## insert elem at index 0
+  list.extend(['yyy', 'zzz'])  ## add list of elems at end
+  print list  ## ['xxx', 'larry', 'curly', 'moe', 'shemp', 'yyy', 'zzz']
+  print list.index('curly')    ## 2
+list.remove(elem) # removes it (throws ValueError if not present)
+list.sort() #sorts the list
+list.reverse() #reverses the list
+list.pop(index)
+
+
+#List Slices
+  list = ['a', 'b', 'c', 'd']
+  print list[1:-1]   ## ['b', 'c']
+  list[0:2] = 'z'    ## replace ['a', 'b'] with ['z']
+  print list         ## ['z', 'c', 'd']
+
+========= List End===========
+
+
+
+
+
+
+
+
+
+
+
