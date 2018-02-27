@@ -1,0 +1,49 @@
+pwd – Print working directory
+cd – Change Directory. //// cd .. - go back
+ls – Lists files	/////ls -a - show all files   ////ls –l - how big file
+whoami – Tells you which user is logged in
+su – Substitute user.
+touch -  quickly create a file
+rm – Removes the file
+clear – Clears the terminal
+./program_name - execute program ////chmod 777 program_name - give r,w,e permission
+more <filename> - view file
+gedit <filename> - edit text
+mkdir <directory name> - make directory
+cp <filename from> <filename to> - copy file
+rm <filename> - delete file ///// rmdir <directory name> - delete dir
+diff <filename1> <filename2> - compare two files
+more <filename> | sort - sort in alphabetical
+more <filename> | sort > result.txt -sort and store in result
+grep <word> <filename>  - find word in filename
+unzip <filename> -unzip file
+
+
+Git
+git init /// initialize git repository
+git status //// show file in cache to upload 
+git add <filename>  /// fix files to commit or add to staging area
+git commit -m "messages"  /// store in repositorye
+git add '*.txt'  /// add all .txt formats in stagin area
+git commit -m "message" /// store in repository
+git log /// show history of committed
+git remote add <remote_name> <repository link> /// create remote repository
+git push -u <remote_name> <branch_name> /// send to github or server
+git pull <remote_name> <branch_name> /// receive updated code from server
+git diff HEAD  // look what is different from last commit
+git diff --staged /// find difference of fiel  in staging area
+git reset <file_name>  // unstaging file / opposite of add
+git checkout -- <target> ///restore previous commit file
+git branch <branch_name >  /// create branch
+git checkout <branch_name>  /// change branch
+git rm '*.txt' /// remove all .txt file
+git commit -m "message"  /// delete files in server
+git merge <branch_name> /// merge master and branch
+git branch -d <branch_name>  /// delete branch
+git push  //push everything
+
+
+
+
+
+ 
