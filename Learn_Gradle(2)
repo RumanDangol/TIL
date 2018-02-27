@@ -1,2 +1,121 @@
 ==================== Gradle =================
 
+------------------ Gradle Task -----------------------
+-> Task is a work which a build performs
+-> Task can be compiling classes, storing class, creating JAR, generating JavaDocs
+-> task is a keyword used to define task into build script
+
+# Tasks can be like
+	- task hello { doLase{ //code }}
+	- task hello << { //code }
+	- task (hello) << { //code }
+	- task ('hello') << { //code }
+	- task.create(name : 'hello') << { //code }
+
+------------ Locating Tasks --------------------------
+# Locating Tasks can be like
+	- println hello.name or println project.hello.name // prints task name hello
+	- println tasks.hello.name or println tasks['hello'].name
+
++++++++++++++++++++++++++++++++++++++++
+Example1 : using tasks path
+	project(':projectA'){
+		task hello
+	}	
+	task hello
+	println tasks.getByPath('hello').path
+	println tasks.getByPath(':hello').path
+	println tasks.getByPath('projectA:hello').path
+	println tasks.getByPath(':projectA:hello').path
+result: 
+:hello
+:hello
+:projectA:hello
+:projectA:hello
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+------------------ End Locating Tasks ------------------------
+
+------------------ Add Dependency to Tasks -----------------------
++++++++++++++++++++++++++++++++++++++++++++++
+Example : task depends upon other tasks
+	task taskX << {
+		println ' taskX'
+	}
+	taskX.dependsOn{
+		tasks.findAll{	
+			task -> task.name.startsWith('lib')
+		}
+	}
+	task lib1 << { println 'lib1' }
+	task lib2 << { println 'lib2' }
+	task lib3 << { println 'lib3' }
+	task notlib << { println 'notlib' }
+result: 
+lib1
+lib2
+lib3
+taskX
++++++++++++++++++++++++++++++++++++++++++++++++++
+------------------- End Add Dependency to Tasks ---------------------
+	
+
+------------------ Add Description to task --------------------------
+++++++++++++++++++++++++++++++
+Example : 
+	task copy(type : Copy){
+		description ' Copies the resources directory'
+	from 'resouuces'
+	into 'target'
+	include('**/*.txt', '**/*.xml', '**/*.properties')
+	println("description applied")
+	}
+result: 
+description applied
+
+++++++++++++++++++++++++++++++++++
+------------------ End Add Description to task --------------------------
+
+
+====================== Gradle Dependecy Management ======================
+
+Example1: Declaring your dependencies
+	appy plugin: 'java'
+	repositories{ mavenCentral() }
+	dependencies { 
+		compile group: 'org.hibernate', name: 'hibernate-core', version: '3.6.7.Final'
+		testCompile group: 'junit', name: 'junit', version: '4.+'
+	}
+
+
+-> compile (dependencies required to compile production source)
+-> runtime (dependencies required by production at runtime)
+-> testCompile (dependencies required compile test source)
+-> testRuntime (dependencies required to run the tests)
+
+Example2 : External Dependencies
+	dependencies{
+		compile group: 'org.hibernate', name: 'hibernate-core', version: '3.3.7'
+	}
+
+Example3: Repositories
+	repositories{		
+		maven {
+			url "http://repo.mycompany.com/maven2"
+		}
+	}
+
+Example4: Publishing Artifacts
+	apply plugin: 'maven'
+	
+	uploadArchives {
+		repositories {
+			mavenDeployer {
+ 				repository(url: "file://localhost/tmp/reop")
+	}}}
+
+====================== End  Gradle Dependecy Management ======================
+
+
+
+
