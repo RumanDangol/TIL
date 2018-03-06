@@ -1,0 +1,92 @@
+====================== JPA {Java Persistence(changing/converting forcely) API} ===========
+-> Collection of classes and methods to persistently store vast amount of data into database
+-> Persistence (storing copy of database object to temporary memory)
+-> forms bridge between object models (Java program) and relational models (database program)
+
+
+# Problem between Java object and Database object
+
+- Granularity: (level of detail or more data) java object has more than Database object
+- Subtypes: (inheritance) no support by Database object
+- Identity: Database object doesnot expose identity
+- Associations: Database object cannot determine multiple relationships
+- Data navigation: different in both object
+
+# Where to use JPA
+-> to reduce burden of writing codes for relational object management
+
+# JPA Providers
+-> Hibernate, Spring Data, Toplink, EclipseLink 
+
+# JPA API {Javax.persitence} has:
+-> Entity Manager Factory { create and manage Entity Manager}
+-> Entity Manager {interface, manages persistence operations}
+-> Entity {Persistence object to store record in database}
+-> Entity Transaction {operation are managed by this class}
+-> Persistence {methods to obtain EntityManagerFactory instance}
+-> Query {interface to obtain relational objects}
+
+============== ORM {Object Reational Mapping} ===============
+-> convert data from object type to relational type and vice versa
+-> Mapping or binding an object to its data in the database
+
+# Advatages
+- Idiomatic persitence: (enables to write persistence classes)
+- High Performance: (many fetching techniques and locking techniques)
+- Reliable: (stable)
+
+# Phases of ORM
+1. Object Data phase contains POJO classes, service interfaces and classes
+	eg: Employee having id, name, salary and DAO services like create employee, find employee etc.
+
+2. Mapping or Persistence Phase contains
+	- JPA provider: (like Hibernate, Spring Data , Eclipselink)
+	- Mapping file: (mapping configuration between java object and database object)
+	- JPA loader: (cache memory like copy of database to interact with service classes)
+	- Object Grid: (cache memory  to store copy of database object, after committed effects in main db)
+
+3. Relational Data phase contains relational data which is logically connected to bussiness component.
+
+-------------------------------------------------
+# Tags for mapping the Entity:
+
+<entity-mappings> : define schema, allow entity tags
+<description>  : description aboout application
+<entity> : define entity
+<table> : define table name
+<attributes> : define attributes (fields in table)
+<id> : define primary key
+<generated-value> : how to assign primary key like Automatic,Manual or taken from sequence
+<basic> : defining remaining attributes for table
+<column-name> : define user defined table field name
+---------------------------------------------------
+
+
+=============== Annotations ==============================
+-> used for classes, properties and methods
+
+@Entity : declare class as entity or table
+@Table : declare table name
+@Basic : non constraint fields explicitly
+@Embedded : properties of class
+@Id : use for identity(Primary key)
+@GeneratedValue : identity value initialized as automatic, manual or value taken
+@Transient : property which in not persitent(value not stored in database)
+@Column : specify column or attribute
+@SequenceGenerator: define value of property specified in @GeneratedValue
+@TableGenerator : create table for value generation
+@JoinColumn : used in many to one and one to many associations
+@NamedQueries : specify list of named queries
+@NamedQuery : specify query using static name
+
+=============== Java Bean Standard =================
+-> Java Bean is an temporary storage and reusable component or an object
+-> Serializable class which has default constructor and getter and setter method 
+
+-----------------------------------------------
+# Bean Conventions
+-> contains default constructor so bean can instantiate bean
+-> segregated into boolean and non-boolean properties
+-> non-boolean contains getter and setter
+-> boolean contain setter and is method
+
