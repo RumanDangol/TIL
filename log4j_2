@@ -1,0 +1,89 @@
+========================== log4j 2 =================================
+-> Printing messages to the console is an integral part of the development testing and the debugging of a Java program
+-> cannot see what’s going on inside the server, then their only visibility tool is a log file
+-> Log4j offers a lot more features, flexibility, and improvement on message quality, which is not possible using the System.out.println() statements.
+
+-> simple, flexible, and fast Java-based logging framework.
+-> It is thread-safe and supports internationalization
+
+# 3 components to work
+- Logger: It is used to log the messages.
+- Appender: It is used to publish the logging information to the destination like a file, database, console etc.
+- Layout: It is used to format logging information in different styles.
+
+# logger class:
+
+static Logger log = LogManager.getLogger(YourClassName.class); // gets logger object
+
+-------- Different logging methods -------------------
+
+1. trace (highest priority) 
+2. debug (low priority than trace)
+3. info (low priority than debug)
+4. warn (low priority than info)
+5. error (low priority than warn)
+6. fatal (low priority than error)
+
+--------------------------------------------------
+
+# Appender interface:
+
+-> responsible for printing the logging messages to the different destinations such as console, files, sockets, database etc
+
+------------- Different types of Appender implementation classes -------------------
+
+1. Console Appender (System Console)
+2. File Appender (file)
+3. Rolling file Appender (rolling log file)
+4. jdbc Appender (relational database)
+5. ASync Appender 
+6. Socket Appender 
+7. Syslog Appender 
+
+-----------------------------------------------------
+
+# Layout Class:
+
+-> format in which the log statements are written into the destination repository by the Appender
+
+---------- Different types of Layout implementatin classes -------------------
+
+1. Pattern layout
+2. Html layout
+3. Yaml layout
+4. xml layout
+5. Json layout
+
+--------------------------------------------------
+
+------ Written in log4j.properties -------------------------
+
+# Define the root logger with Appender APP
+log4j.rootLogger=DEBUG, stdout, APP
+# add a ConsoleAppender to the logger stdout to write to the console
+log4j.appender.stdout=org.apache.logging.log4j.core.appender.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.logging.log4j.core.layout.PatternLayout
+# Pattern to output the caller's file name and line number.
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %d{yyyy-MM-dd HH:mm:ss.SSS}; - (%F:%L) - %m%n
+# Define the file for APP Appender
+log4j.appender.APP=org.apache.logging.log4j.core.appender.RollingFileAppender
+log4j.appender.APP.File=example.log
+#Define Max File Size for APP Appender
+log4j.appender.APP.MaxFileSize=100KB
+# Keep one backup file for APP Appender
+log4j.appender.APP.MaxBackupIndex=1
+# Define the layout for APP Appender
+log4j.appender.APP.layout=org.apache.logging.log4j.core.layout.PatternLayout
+log4j.appender.APP.layout.ConversionPattern=%5p %t - %d{yyyy-MM-dd HH:mm:ss.SSS};
+
+    %5p: It writes the level in the log. The 5 in the %5p is to set the width of the field to the 5 characters
+    %d{yyyy-MM-dd HH:mm:ss.SSS}: It writes the date in the given date-time format
+    %t: It writes the method name in the log
+    %c: It writes the absolute class name (For e.g. com.jcg.log4j2.demo) in the log
+    %m%n: It writes the message to the log
+    %L: It writes the line number in the log
+    %F: It writes the class name in the log
+
+----------------------------------------------------------
+
+
