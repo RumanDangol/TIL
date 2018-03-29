@@ -1,0 +1,25 @@
+Benefits of storing image in database:
+
+- good for backup[backing up database backup photo]
+- deleting the user automatically deletes photo
+- all data in one place
+- easy to have for local use
+
+
+
+Cons of storing image in database:
+
+- takes up a lot of space
+- have to use more compute power on application server to retrieve image
+
+
+Benefits of storing image URL in database:
+
+- much smaller
+- less work on server to serve
+
+
+Cons of storing image Url in database:
+
+- many urls are unreadable
+- have to upload your files
